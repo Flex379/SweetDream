@@ -20,4 +20,4 @@ import { getOrder, saveOrder, saveToStorage } from './storage';
 //   comment: 'Зателефонуйте, будь-ласка, для уточнення деталей. Наперед дякую!',
 // });
 
-console.log(getOrder());
+//console.log(getOrder());
