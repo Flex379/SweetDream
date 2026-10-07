@@ -28,12 +28,15 @@ export async function getFeedbacks(currentPage = 1) {
   const { data } = await axios(
     `${API_ENDPOINTS.FEEDBACKS}?limit=${FEEDBACKS_PER_PAGE}&page=${currentPage}`
   );
-  console.log(data);
   return data;
 }
 
 export async function getDessertById(dessertId) {
   const { data } = await axios(`${API_ENDPOINTS.DESSERT_BY_ID}${dessertId}`);
-  console.log(data);
+  return data;
+}
+
+export async function createOrder(newOrderBody) {
+  const { data } = await axios.post(`${API_ENDPOINTS.ORDERS}`, newOrderBody);
   return data;
 }

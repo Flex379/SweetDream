@@ -4,9 +4,11 @@ export const API_ENDPOINTS = {
   DESSERTS: '/desserts',
   FEEDBACKS: '/feedbacks',
   DESSERT_BY_ID: '/desserts/',
-  // PRODUCTS_BY_CATEGORY: '/products/category/',
-  // PRODUCT_BY_ID: '/products/',
-  // SEARCH: '/products/search',
+  ORDERS: '/orders',
 };
 export const DESSERTS_PER_PAGE = 8;
 export const FEEDBACKS_PER_PAGE = 10;
+
+export const STORAGE_KEYS = {
+  ORDER: 'order',
+};
