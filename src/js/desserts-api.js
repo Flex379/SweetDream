@@ -1,0 +1,39 @@
+import axios from 'axios';
+import { API_BASE_URL, API_ENDPOINTS } from './constants';
+import { FEEDBACKS_PER_PAGE } from './constants';
+import { DESSERTS_PER_PAGE } from './constants';
+
+axios.defaults.baseURL = API_BASE_URL;
+
+export async function getDesserts(currentPage = 1) {
+  const { data } = await axios(
+    `${API_ENDPOINTS.DESSERTS}?limit=${DESSERTS_PER_PAGE}&page=${currentPage}`
+  );
+  return data;
+}
+
+export async function getCategoires() {
+  const { data } = await axios(API_ENDPOINTS.CATEGORIES);
+  return data;
+}
+
+export async function getDessertsByCategory(category) {
+  const { data } = await axios(
+    `${API_ENDPOINTS.DESSERTS}?category=${category}`
+  );
+  return data;
+}
+
+export async function getFeedbacks(currentPage = 1) {
+  const { data } = await axios(
+    `${API_ENDPOINTS.FEEDBACKS}?limit=${FEEDBACKS_PER_PAGE}&page=${currentPage}`
+  );
+  console.log(data);
+  return data;
+}
+
+export async function getDessertById(dessertId) {
+  const { data } = await axios(`${API_ENDPOINTS.DESSERT_BY_ID}${dessertId}`);
+  console.log(data);
+  return data;
+}
