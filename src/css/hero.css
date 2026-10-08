@@ -69,6 +69,10 @@
   text-align: center;
 
   color: var(--color-neutral-darkest);
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
 }
 .hero-button:hover, .hero-button:focus {
   outline: none;
