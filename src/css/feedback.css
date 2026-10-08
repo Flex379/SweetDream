@@ -111,6 +111,10 @@
   opacity: 1;
 }
 
+.feedback-pagination .swiper-pagination-bullet:hover {
+  opacity: 1;
+}
+
 /* Mobile */
 
 @media screen and (max-width: 767px) {
@@ -184,4 +188,9 @@
   .feedback-title {
     font-size: 48px;
   }
+}
+
+.feedback-button:hover svg,
+.feedback-button:focus-visible svg {
+  filter: brightness(0) invert(1);
 }
