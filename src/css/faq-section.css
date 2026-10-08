@@ -31,16 +31,8 @@
   flex-grow: 1;
 }
 
-.faq-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px;
-}
-
 .faq-icon {
+  flex-shrink: 0;
   transition: transform var(--animation);
 }
 
