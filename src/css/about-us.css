@@ -99,11 +99,7 @@
   height: 24px;
   margin: 0;
   fill: var(--color-neutral-darkest);
-  transform: translate(2px, 4px);
-}
-
-.about-us-button-prev svg {
-  transform: translate(2px, 4px);
+  transform: translateY(4px);
 }
 
 .about-us-button:hover {
