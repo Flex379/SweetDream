@@ -99,7 +99,8 @@
   height: 24px;
   margin: 0;
   fill: var(--color-neutral-darkest);
-  transform: translateY(4px);
+
+  transform: translate(-2px);
 }
 
 .about-us-button:hover {
