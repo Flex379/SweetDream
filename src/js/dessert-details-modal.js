@@ -1,6 +1,6 @@
 import {
   createOrder,
-  getCategoires,
+  getCategories,
   getDessertById,
   getDesserts,
   getDessertsByCategory,
