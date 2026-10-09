@@ -118,17 +118,16 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  visibility: hidden;
-  opacity: 0;
+
+  transform: translateX(100%);
+
+  transition: transform 500ms ease-in-out;
+
   pointer-events: none;
-  transition:
-    opacity 250ms ease,
-    visibility 250ms ease;
 }
 
 .mobile-menu.is-open {
-  visibility: visible;
-  opacity: 1;
+  transform: translateX(0);
   pointer-events: auto;
 }
 
