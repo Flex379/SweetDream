@@ -33,10 +33,7 @@ export function populateDessertDetailsModal({
   name,
   price,
   rate,
-  _id,
 }) {
-  //currentDessertId = _id;
-  // console.log(_id);
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
@@ -66,32 +63,32 @@ export function clearDessertDetailsModal() {
   });
 }
 
-export async function handleOpenDesertDetailsModal() {
+export async function handleOpenDessertDetailsModal() {
   clearDessertDetailsModal();
 
   const dessert = await getDessertById(currentDessertId);
   populateDessertDetailsModal(dessert);
-  openDesertDetailsModal();
+  openDessertDetailsModal();
 }
 
-export function openDesertDetailsModal() {
+export function openDessertDetailsModal() {
   const refs = dessertDetailsRefs;
   refs.dessertDetailsModal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 
   window.addEventListener('keydown', handleEscPress);
-  refs.closeBtn.addEventListener('click', closeDesertDetailsModal);
+  refs.closeBtn.addEventListener('click', closeDessertDetailsModal);
   refs.dessertDetailsModal.addEventListener('click', handleBackDropClick);
   refs.orderBtn.addEventListener('click', handleOpenOrderModalClick);
 }
 
-export function closeDesertDetailsModal() {
+export function closeDessertDetailsModal() {
   const refs = dessertDetailsRefs;
   refs.dessertDetailsModal.classList.remove('is-open');
   document.body.style.overflow = '';
 
   window.removeEventListener('keydown', handleEscPress);
-  refs.closeBtn.removeEventListener('click', closeDesertDetailsModal);
+  refs.closeBtn.removeEventListener('click', closeDessertDetailsModal);
 
   refs.dessertDetailsModal.removeEventListener('click', handleBackDropClick);
 }
@@ -102,14 +99,14 @@ function handleOpenOrderModalClick() {
 
 function handleEscPress(event) {
   if (event.code === 'Escape') {
-    closeDesertDetailsModal();
+    closeDessertDetailsModal();
   }
 }
 
 function handleBackDropClick(event) {
   if (event.currentTarget === event.target) {
-    closeDesertDetailsModal();
+    closeDessertDetailsModal();
   }
 }
 
-// handleOpenDesertDetailsModal();
+// handleOpenDessertDetailsModal();

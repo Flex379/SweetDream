@@ -1,5 +1,5 @@
 import {
-  closeDesertDetailsModal,
+  closeDessertDetailsModal,
   currentDessertId,
 } from './dessert-details-modal';
 import { createOrder } from './desserts-api';
@@ -69,7 +69,7 @@ async function handleOrderSubmit(event) {
       );
       form.reset();
       closeOrderModal();
-      closeDesertDetailsModal();
+      closeDessertDetailsModal();
       removeOrderFormData();
     } catch (error) {
       console.log(`Помилка оформлення замовлення ${error}`);
