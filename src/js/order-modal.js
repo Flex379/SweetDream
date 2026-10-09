@@ -87,7 +87,6 @@ async function handleOrderSubmit(event) {
     const formData = Object.fromEntries(new FormData(form));
     formData.dessertId = currentDessertId;
     formData.phone = removeSpacesFromPhone(formData.phone);
-    console.log(formData);
     try {
       let result = await createOrder(formData);
       showTost(
