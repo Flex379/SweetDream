@@ -112,4 +112,4 @@ function handleBackDropClick(event) {
   }
 }
 
-handleOpenDesertDetailsModal();
+// handleOpenDesertDetailsModal();
