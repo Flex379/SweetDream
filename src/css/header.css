@@ -208,6 +208,7 @@ body.menu-open {
   color: #080c0c;
   text-decoration: none;
   cursor: pointer;
+  margin-top: 30px;
 }
 
 .mobile-nav-button:hover,
