@@ -36,7 +36,7 @@ function populateDessertDetailsModal({
   _id,
 }) {
   //currentDessertId = _id;
-  console.log(_id);
+  // console.log(_id);
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
