@@ -20,9 +20,9 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" crossorigin src="/SweetDream/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/SweetDream/assets/vendor-DxdsXMaT.js">
-    <link rel="stylesheet" crossorigin href="/SweetDream/assets/vendor-DpVgyL58.css">
-    <link rel="stylesheet" crossorigin href="/SweetDream/assets/index-BFVZx9hb.css">
+    <link rel="modulepreload" crossorigin href="/SweetDream/assets/vendor-DulJxAKo.js">
+    <link rel="stylesheet" crossorigin href="/SweetDream/assets/vendor-6pEjEjEG.css">
+    <link rel="stylesheet" crossorigin href="/SweetDream/assets/index-UH3KED2B.css">
   </head>
   <body>
     
@@ -470,8 +470,92 @@
 
     
 
-    
-    
+    <div class="dessert-details backdrop">
+  <div class="dessert-details-modal">
+    <button class="dessert-details-close modal-close-btn" type="button">
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="/SweetDream/assets/icons-Fzsn41PQ.svg#close"></use>
+      </svg>
+    </button>
+    <img
+      class="dessert-details-img"
+      src="../img/about-us/desktop/about-us-1.webp"
+      alt=""
+    />
+    <div class="dessert-details-info">
+      <h2 class="dessert-details-title"></h2>
+      <p class="dessert-details-price">
+        <span class="dessert-details-price-number"></span> грн.
+      </p>
+      <div class="dessert-details-rating"></div>
+      <p class="dessert-details-description"></p>
+      <p class="dessert-details-composition">
+        Склад:
+        <span class="dessert-details-composition-value"></span>
+      </p>
+      <button class="dessert-details-btn btn">Перейти до замовлення</button>
+    </div>
+  </div>
+</div>
+
+    <div class="order backdrop">
+  <div class="order-modal modal">
+    <button class="order-modal-close modal-close-btn" type="button">
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="/SweetDream/assets/icons-Fzsn41PQ.svg#close"></use>
+      </svg>
+    </button>
+
+    <h2 class="order-title">Оформлення замовлення</h2>
+
+    <form class="order-form form" novalidate>
+      <div class="order-field">
+        <label class="order-label" for="name">Ім'я*</label>
+        <input
+          class="order-input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Вікторія"
+          autofocus
+          required
+        />
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <div class="order-field">
+        <label class="order-label" for="phone">Телефон*</label>
+        <input
+          class="order-input"
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="38 0__ _______"
+          required
+          pattern="^[0-9]{12}$"
+        />
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <div class="order-field">
+        <label class="order-label" for="comment">Коментар*</label>
+        <textarea
+          class="order-textarea"
+          id="comment"
+          name="comment"
+          placeholder="Ваш коментар"
+          required
+        ></textarea>
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <button class="order-submit-btn btn" type="submit">
+        Надіслати заявку
+      </button>
+    </form>
+  </div>
+</div>
+
 
   </body>
 </html>
