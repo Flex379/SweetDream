@@ -26,7 +26,7 @@ export let currentDessertId = '6852a9fcb459460cb6b47720';
 const dessertRating = createDessertRatingObject();
 dessertRating.init();
 
-function populateDessertDetailsModal({
+export function populateDessertDetailsModal({
   composition,
   description,
   image,
