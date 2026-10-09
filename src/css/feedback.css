@@ -81,13 +81,22 @@
 
 .feedback-button:hover,
 .feedback-button:focus-visible {
-  background-color: #f19098;
+  background-color: var(--color-wewak);
   color: #080c0c;
 }
 
-.feedback-button:disabled {
+.feedback-button.swiper-button-disabled {
   opacity: 0.4;
-  cursor: not-allowed;
+  cursor: default;
+}
+
+.feedback-button.swiper-button-disabled:hover {
+  background-color: #080c0c;
+  color: #fff;
+}
+
+.feedback-button.swiper-button-disabled:hover svg {
+  filter: brightness(0) invert(1);
 }
 
 .feedback-pagination {
@@ -105,6 +114,7 @@
   background-color: #080c0c;
   opacity: 0.45;
   cursor: pointer;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feedback-pagination .swiper-pagination-bullet-active {
