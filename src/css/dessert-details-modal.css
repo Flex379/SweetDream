@@ -1,0 +1,158 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  opacity: 0;
+  transition: opacity var(--animation);
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 16px;
+  right: 9px;
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  opacity: 1;
+
+  color: var(--color-scheme-1-text);
+  background-color: transparent;
+  border: none;
+
+  transition: opacity var(--animation);
+}
+
+.dessert-details-modal {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 16px;
+  padding: 64px 20px;
+  width: 335px;
+  height: 711px;
+
+  overflow-y: auto;
+
+  background: var(--color-scheme-1-background);
+}
+
+.dessert-details-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dessert-details-img {
+  height: 221px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.dessert-details-title {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 32px;
+
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.dessert-details-price {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 20px;
+
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.dessert-details-description {
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.dessert-details-composition {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dessert-details-composition-value {
+  font-weight: 400;
+}
+
+.dessert-details-btn {
+  margin-top: auto;
+}
+
+.dessert-details-rating {
+  margin-top: 24px;
+  line-height: 0;
+  cursor: default !important;
+}
+
+.dessert-details-rating .star-on-png,
+.dessert-details-rating .star-off-png,
+.dessert-details-rating .star-half-png {
+  font-size: 16px;
+}
+
+.dessert-details-rating i {
+  pointer-events: none;
+}
+
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .dessert-details-modal {
+    padding: 64px 32px;
+    width: 704px;
+    height: 959px;
+  }
+
+  .dessert-details-img {
+    height: 480px;
+  }
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .dessert-details-modal {
+    flex-direction: row;
+    padding: 64px;
+    width: 1312px;
+    height: 611px;
+    gap: 24px;
+  }
+
+  .dessert-details-img {
+    width: 580px;
+    height: 100%;
+  }
+
+  .dessert-details-title {
+    font-size: 40px;
+  }
+
+  .dessert-details-price {
+    font-size: 24px;
+  }
+}

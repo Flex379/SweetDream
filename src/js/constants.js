@@ -10,5 +10,5 @@ export const DESSERTS_PER_PAGE = 8;
 export const FEEDBACKS_PER_PAGE = 10;
 
 export const STORAGE_KEYS = {
-  ORDER: 'order',
+  ORDER_FORM_DATA: 'order_form_data',
 };
