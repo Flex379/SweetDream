@@ -36,9 +36,6 @@
   transition: background-color var(--animation);
 }
 
-.order-btn-icon {
-}
-
 .category-btn:hover,
 .category-btn:focus-visible,
 .order-btn:hover,
