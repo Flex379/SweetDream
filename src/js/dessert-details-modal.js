@@ -26,14 +26,17 @@ export let currentDessertId = '6852a9fcb459460cb6b47720';
 const dessertRating = createDessertRatingObject();
 dessertRating.init();
 
-function populateDessertDetailsModal({
+export function populateDessertDetailsModal({
   composition,
   description,
   image,
   name,
   price,
   rate,
+  _id,
 }) {
+  //currentDessertId = _id;
+  // console.log(_id);
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
@@ -52,7 +55,7 @@ function createDessertRatingObject() {
   });
 }
 
-function clearDessertDetailsModal() {
+export function clearDessertDetailsModal() {
   populateDessertDetailsModal({
     composition: '',
     description: '',
@@ -71,7 +74,7 @@ export async function handleOpenDesertDetailsModal() {
   openDesertDetailsModal();
 }
 
-function openDesertDetailsModal() {
+export function openDesertDetailsModal() {
   const refs = dessertDetailsRefs;
   refs.dessertDetailsModal.classList.add('is-open');
   document.body.style.overflow = 'hidden';
@@ -109,4 +112,4 @@ function handleBackDropClick(event) {
   }
 }
 
-handleOpenDesertDetailsModal();
+// handleOpenDesertDetailsModal();
