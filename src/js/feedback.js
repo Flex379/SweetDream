@@ -37,7 +37,7 @@ async function initFeedback() {
       modules: [Navigation, Pagination, A11y],
       slidesPerView: 1,
       spaceBetween: 16,
-      speed: 400,
+      speed: 250,
       watchOverflow: true,
 
       navigation: {
@@ -46,9 +46,10 @@ async function initFeedback() {
       },
 
       pagination: {
-        el: '.feedback-pagination',
-        clickable: true,
-      },
+  el: '.feedback-pagination',
+  clickable: true,
+  
+},
 
       breakpoints: {
         768: {
