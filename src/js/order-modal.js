@@ -1,6 +1,7 @@
 import {
   closeDesertDetailsModal,
   currentDessertId,
+  openDesertDetailsModal,
 } from './dessert-details-modal';
 import { createOrder } from './desserts-api';
 import { showTost } from './helpers';
@@ -15,21 +16,20 @@ const orderModalRefs = {
   orderModal: document.querySelector('.order'),
   submitBtn: document.querySelector('.order-submit-btn'),
   closeBtn: document.querySelector('.order-modal-close'),
+  phoneInput: document.querySelector('#phone'),
 };
 
 function initOrderModal() {
   restoreFormData();
   const refs = orderModalRefs;
-  refs.closeBtn.addEventListener('click', closeOrderModal);
+  refs.closeBtn.addEventListener('click', () => {
+    closeOrderModal();
+    openDesertDetailsModal();
+  });
   refs.form.addEventListener('submit', handleOrderSubmit);
   refs.form.addEventListener('input', handleFormInput);
 
-  // TODO допрацювати валідацію!!
-  const phoneInput = document.querySelector('#phone');
-
-  phoneInput.addEventListener('input', () => {
-    phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 12);
-  });
+  refs.phoneInput.addEventListener('input', handlePhoneInput);
 }
 
 export function openOrderModal() {
@@ -50,6 +50,33 @@ export function closeOrderModal() {
   refs.orderModal.removeEventListener('click', handleOrderBackDropClick);
 }
 
+function handlePhoneInput(e) {
+  let value = e.target.value.replace(/\D/g, '');
+  value = value.slice(0, 12);
+
+  let formatted = '';
+
+  if (value.length > 0) {
+    formatted += value.substring(0, 2);
+  }
+
+  if (value.length > 2) {
+    formatted += ' ' + value.substring(2, 5);
+  }
+
+  if (value.length > 5) {
+    formatted += ' ' + value.substring(5);
+  }
+
+  e.target.value = formatted;
+}
+
+function handleFormInput(event) {
+  const form = event.currentTarget;
+  const data = Object.fromEntries(new FormData(form));
+  saveOrderFormData(data);
+}
+
 async function handleOrderSubmit(event) {
   console.log('submit');
   event.preventDefault();
@@ -60,6 +87,7 @@ async function handleOrderSubmit(event) {
   if (form.checkValidity()) {
     const formData = Object.fromEntries(new FormData(form));
     formData.dessertId = currentDessertId;
+    formData.phone = removeSpacesFromPhone(formData.phone);
     console.log(formData);
     try {
       let result = await createOrder(formData);
@@ -81,12 +109,14 @@ async function handleOrderSubmit(event) {
 function handleOrderEscPress(event) {
   if (event.code === 'Escape') {
     closeOrderModal();
+    openDesertDetailsModal();
   }
 }
 
 function handleOrderBackDropClick(event) {
   if (event.currentTarget === event.target) {
     closeOrderModal();
+    openDesertDetailsModal();
   }
 }
 
@@ -114,10 +144,8 @@ function validateForm() {
   });
 }
 
-function handleFormInput(event) {
-  const form = event.currentTarget;
-  const data = Object.fromEntries(new FormData(form));
-  saveOrderFormData(data);
+function removeSpacesFromPhone(phone) {
+  return phone.replace(/\s/g, '');
 }
 
 function restoreFormData() {
@@ -134,4 +162,3 @@ function restoreFormData() {
 }
 
 initOrderModal();
-// openOrderModal();
