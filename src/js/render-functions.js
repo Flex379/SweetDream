@@ -1,4 +1,5 @@
 import { refs } from './dessert-list.js';
+import iconsUrl from '../img/icons.svg?url';
 
 export function renderCategories(categories) {
     // Render category select options and buttons
@@ -34,7 +35,7 @@ export function renderProducts(products) {
 
             <button class="order-btn" type="button" data-id="${_id}">
             <svg class="order-btn-icon" width="24" height="24" aria-hidden="true">
-                <use href="/img/icons.svg#arrow-outward"></use>
+                <use href="${iconsUrl}#arrow-outward"></use>
             </svg>
             </button>
         </div>
