@@ -6,3 +6,4 @@ import './js/feedback';
 import './js/faq-section';
 import './js/footer';
 import './js/dessert-details-modal';
+import './js/order-modal';
