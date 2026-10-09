@@ -117,10 +117,21 @@
 }
 
 .about-us-button.swiper-button-disabled {
-  background-color: var(--color-ice-cold-lightest);
-  opacity: 0.2;
-  cursor: default;
-  pointer-events: none;
+  background-color: transparent;
+  border-color: var(--color-neutral-darkest);
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+.about-us-button.swiper-button-disabled:hover {
+  background-color: rgba(8, 12, 12, 0.4);
+  border-color: transparent;
+  opacity: 1;
+}
+
+.about-us-button.swiper-button-disabled:hover svg {
+  filter: brightness(0) invert(1);
 }
 
 .about-us-pagination {
