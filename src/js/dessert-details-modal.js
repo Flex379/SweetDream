@@ -21,7 +21,7 @@ const dessertDetailsRefs = {
   orderModal: document.querySelector('.order'),
 };
 
-export let currentDessertId = '6852a9fcb459460cb6b47720';
+export let currentDessertId = '';
 
 const dessertRating = createDessertRatingObject();
 dessertRating.init();
@@ -33,7 +33,9 @@ export function populateDessertDetailsModal({
   name,
   price,
   rate,
+  _id: id,
 }) {
+  currentDessertId = id;
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
@@ -60,13 +62,14 @@ export function clearDessertDetailsModal() {
     name: '',
     price: '',
     rate: 0,
+    _id: '',
   });
 }
 
 export async function handleOpenDessertDetailsModal() {
   clearDessertDetailsModal();
 
-  const dessert = await getDessertById(currentDessertId);
+  const dessert = await getDessertById('6852a9fcb459460cb6b47720');
   populateDessertDetailsModal(dessert);
   openDessertDetailsModal();
 }
@@ -94,6 +97,7 @@ export function closeDessertDetailsModal() {
 }
 
 function handleOpenOrderModalClick() {
+  closeDessertDetailsModal();
   openOrderModal();
 }
 
