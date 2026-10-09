@@ -1,4 +1,7 @@
 .order-modal {
+  max-height: 100vh;
+  overflow-y: auto;
+
   position: relative;
   border-radius: 16px;
   padding: 64px 20px;
