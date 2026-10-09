@@ -81,8 +81,8 @@
 
 .feedback-button:hover,
 .feedback-button:focus-visible {
-  background-color: #080c0c;
-  color: #fff;
+  background-color: #f19098;
+  color: #080c0c;
 }
 
 .feedback-button:disabled {
@@ -103,11 +103,15 @@
   height: 8px;
   border-radius: 50%;
   background-color: #080c0c;
-  opacity: 0.25;
+  opacity: 0.45;
   cursor: pointer;
 }
 
 .feedback-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.feedback-pagination .swiper-pagination-bullet:hover {
   opacity: 1;
 }
 
@@ -141,10 +145,23 @@
   }
 
   .feedback-pagination {
-    justify-content: flex-start;
-    margin-top: -44px;
-    min-height: 16px;
-  }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+  width: 120px;
+  max-width: 120px;
+  margin-top: -44px;
+  min-height: 48px;
+}
+
+.feedback-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  margin: 0 !important;
+}
 }
 
 /* Tablet */
@@ -185,3 +202,4 @@
     font-size: 48px;
   }
 }
+

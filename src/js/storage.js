@@ -22,14 +22,14 @@ export function removeFromStorage(key) {
   localStorage.removeItem(key);
 }
 
-export function getOrder() {
-  return getFromStorage(STORAGE_KEYS.ORDER) || '';
+export function getOrderFormData() {
+  return getFromStorage(STORAGE_KEYS.ORDER_FORM_DATA);
 }
 
-export function saveOrder(order) {
-  saveToStorage(STORAGE_KEYS.ORDER, order);
+export function saveOrderFormData(order) {
+  saveToStorage(STORAGE_KEYS.ORDER_FORM_DATA, order);
 }
 
-export function removeOrder() {
-  removeFromStorage(STORAGE_KEYS.ORDER);
+export function removeOrderFormData() {
+  removeFromStorage(STORAGE_KEYS.ORDER_FORM_DATA);
 }

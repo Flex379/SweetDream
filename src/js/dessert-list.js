@@ -1,13 +1,13 @@
-import { getCategories, getDessertsByCategory, getDesserts } from './desserts-api.js';
+import { getCategories, getDessertsByCategory, getDesserts, getDessertById } from './desserts-api.js';
 import { renderCategories, renderProducts, clearDessertList, showLoadMoreBtn, hideLoadMoreBtn } from './render-functions.js';
 import { DESSERTS_PER_PAGE } from './constants.js';
+import { clearDessertDetailsModal, populateDessertDetailsModal, openDessertDetailsModal } from './dessert-details-modal.js';
 
 export const refs = {
     categorySelect: document.querySelector('.category-select'),
     categoryButtons: document.querySelector('.category-buttons'),
     dessertList: document.querySelector('.dessert-list'),
     loadMoreBtn: document.querySelector('.load-more-btn'),
-
 }
 
 let currentPage = 1;
@@ -15,12 +15,10 @@ let currentPage = 1;
 
 document.addEventListener('DOMContentLoaded', async event => {
     const categories = await getCategories();
-    console.log(categories);
     renderCategories(categories);
     hideLoadMoreBtn();
 
     applyCategory('');
-
 });
 
 
@@ -55,6 +53,21 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     currentPage += 1;
     const activeCategory = refs.categorySelect.value;
     applyCategory(activeCategory, currentPage);
+});
+
+refs.dessertList.addEventListener('click', async event => {
+    const orderButton = event.target.closest('.order-btn');
+    if (!orderButton) return;
+
+    // Add your order button click handling logic here
+
+    console.log('Order button clicked:', orderButton);
+
+    clearDessertDetailsModal();
+
+    const dessert = await getDessertById(orderButton.dataset.id);
+    populateDessertDetailsModal(dessert);
+    openDessertDetailsModal();
 });
 
 async function applyCategory(category, currentPage = 1) {

@@ -1,0 +1,57 @@
+<div class="order backdrop">
+  <div class="order-modal modal">
+    <button class="order-modal-close modal-close-btn" type="button">
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="./img/icons.svg#close"></use>
+      </svg>
+    </button>
+
+    <h2 class="order-title">Оформлення замовлення</h2>
+
+    <form class="order-form form" novalidate>
+      <div class="order-field">
+        <label class="order-label" for="name">Ім'я*</label>
+        <input
+          class="order-input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Вікторія"
+          autofocus
+          required
+        />
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <div class="order-field">
+        <label class="order-label" for="phone">Телефон*</label>
+        <input
+          class="order-input"
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="38 0__ _______"
+          required
+          pattern="^[0-9]{12}$"
+        />
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <div class="order-field">
+        <label class="order-label" for="comment">Коментар*</label>
+        <textarea
+          class="order-textarea"
+          id="comment"
+          name="comment"
+          placeholder="Ваш коментар"
+          required
+        ></textarea>
+        <p class="form-error">Error Text</p>
+      </div>
+
+      <button class="order-submit-btn btn" type="submit">
+        Надіслати заявку
+      </button>
+    </form>
+  </div>
+</div>

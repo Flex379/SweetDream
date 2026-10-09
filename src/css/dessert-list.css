@@ -40,9 +40,9 @@
 }
 
 .category-btn:hover,
-.category-btn:focus,
+.category-btn:focus-visible,
 .order-btn:hover,
-.order-btn:focus {
+.order-btn:focus-visible {
   background-color: var(--color-wewak);
 }
 
