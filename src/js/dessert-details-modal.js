@@ -36,7 +36,6 @@ export function populateDessertDetailsModal({
   _id,
 }) {
   currentDessertId = _id;
-  // console.log(_id);
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
@@ -114,4 +113,4 @@ function handleBackDropClick(event) {
   }
 }
 
-handleOpenDesertDetailsModal();
+// handleOpenDesertDetailsModal();

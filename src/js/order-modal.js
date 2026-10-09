@@ -78,7 +78,6 @@ function handleFormInput(event) {
 }
 
 async function handleOrderSubmit(event) {
-  console.log('submit');
   event.preventDefault();
   const form = event.target;
 
