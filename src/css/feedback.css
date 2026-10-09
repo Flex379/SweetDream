@@ -81,13 +81,22 @@
 
 .feedback-button:hover,
 .feedback-button:focus-visible {
+  background-color: var(--color-wewak);
+  color: #080c0c;
+}
+
+.feedback-button.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.feedback-button.swiper-button-disabled:hover {
   background-color: #080c0c;
   color: #fff;
 }
 
-.feedback-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+.feedback-button.swiper-button-disabled:hover svg {
+  filter: brightness(0) invert(1);
 }
 
 .feedback-pagination {
@@ -103,8 +112,9 @@
   height: 8px;
   border-radius: 50%;
   background-color: #080c0c;
-  opacity: 0.25;
+  opacity: 0.45;
   cursor: pointer;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feedback-pagination .swiper-pagination-bullet-active {
@@ -145,10 +155,23 @@
   }
 
   .feedback-pagination {
-    justify-content: flex-start;
-    margin-top: -44px;
-    min-height: 16px;
-  }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+  width: 120px;
+  max-width: 120px;
+  margin-top: -44px;
+  min-height: 48px;
+}
+
+.feedback-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  margin: 0 !important;
+}
 }
 
 /* Tablet */
@@ -190,7 +213,3 @@
   }
 }
 
-.feedback-button:hover svg,
-.feedback-button:focus-visible svg {
-  filter: brightness(0) invert(1);
-}

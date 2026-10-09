@@ -12,14 +12,14 @@ export async function getDesserts(currentPage = 1) {
   return data;
 }
 
-export async function getCategoires() {
+export async function getCategories() {
   const { data } = await axios(API_ENDPOINTS.CATEGORIES);
   return data;
 }
 
-export async function getDessertsByCategory(category) {
+export async function getDessertsByCategory(category, currentPage = 1) {
   const { data } = await axios(
-    `${API_ENDPOINTS.DESSERTS}?category=${category}`
+    `${API_ENDPOINTS.DESSERTS}?category=${category}&limit=${DESSERTS_PER_PAGE}&page=${currentPage}`
   );
   return data;
 }
