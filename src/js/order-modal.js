@@ -1,7 +1,7 @@
 import {
   closeDessertDetailsModal,
   currentDessertId,
-  openDesertDetailsModal,
+  openDessertDetailsModal,
 } from './dessert-details-modal';
 import { createOrder } from './desserts-api';
 import { showTost } from './helpers';
@@ -24,7 +24,7 @@ function initOrderModal() {
   const refs = orderModalRefs;
   refs.closeBtn.addEventListener('click', () => {
     closeOrderModal();
-    openDesertDetailsModal();
+    openDessertDetailsModal();
   });
   refs.form.addEventListener('submit', handleOrderSubmit);
   refs.form.addEventListener('input', handleFormInput);
@@ -107,14 +107,14 @@ async function handleOrderSubmit(event) {
 function handleOrderEscPress(event) {
   if (event.code === 'Escape') {
     closeOrderModal();
-    openDesertDetailsModal();
+    openDessertDetailsModal();
   }
 }
 
 function handleOrderBackDropClick(event) {
   if (event.currentTarget === event.target) {
     closeOrderModal();
-    openDesertDetailsModal();
+    openDessertDetailsModal();
   }
 }
 

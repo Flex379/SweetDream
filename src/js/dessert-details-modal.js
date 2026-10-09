@@ -95,7 +95,7 @@ export function closeDessertDetailsModal() {
 }
 
 function handleOpenOrderModalClick() {
-  closeDesertDetailsModal();
+  closeDessertDetailsModal();
   openOrderModal();
 }
 
