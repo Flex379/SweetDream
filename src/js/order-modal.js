@@ -17,6 +17,7 @@ const orderModalRefs = {
   submitBtn: document.querySelector('.order-submit-btn'),
   closeBtn: document.querySelector('.order-modal-close'),
   phoneInput: document.querySelector('#phone'),
+  errors: document.querySelectorAll('.forms-errors'),
 };
 
 function initOrderModal() {
@@ -46,8 +47,14 @@ export function closeOrderModal() {
   refs.orderModal.classList.remove('is-open');
   document.body.style.overflow = '';
 
+  clearValidationErrors();
   window.removeEventListener('keydown', handleOrderEscPress);
   refs.orderModal.removeEventListener('click', handleOrderBackDropClick);
+}
+
+function clearValidationErrors() {
+  orderModalRefs.errors.forEach(error => (error.textContent = ''));
+  orderModalRefs.form.classList.remove('was-validated');
 }
 
 function handlePhoneInput(e) {
@@ -125,6 +132,7 @@ function validateForm() {
     const error = input.nextElementSibling;
 
     if (!input.validity.valid) {
+      input.classList.add('is-invalid');
       if (input.validity.valueMissing) {
         error.textContent = 'Це поле обов’язкове';
       } else if (input.validity.tooShort) {
