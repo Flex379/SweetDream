@@ -34,3 +34,13 @@ document.addEventListener('keydown', event => {
     closeMenu();
   }
 });
+
+const header = document.querySelector('.header');
+
+function handleHeaderScroll() {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+}
+
+window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+
+handleHeaderScroll();
