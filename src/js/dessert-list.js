@@ -14,11 +14,15 @@ let currentPage = 1;
 
 
 document.addEventListener('DOMContentLoaded', async event => {
-    const categories = await getCategories();
-    renderCategories(categories);
-    hideLoadMoreBtn();
+    try {
+        const categories = await getCategories();
+        renderCategories(categories);
+        hideLoadMoreBtn();
 
-    applyCategory('');
+        applyCategory('');
+    } catch (error) {
+        console.error('Error loading categories:', error);
+    }
 });
 
 
@@ -53,36 +57,44 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     currentPage += 1;
     const activeCategory = refs.categorySelect.value;
     applyCategory(activeCategory, currentPage);
+
+    const dessertItem = document.querySelector('.dessert-item');
+    scrollBy({
+        top: dessertItem.getBoundingClientRect().height + 60,
+        behavior: 'smooth',
+    });
 });
 
 refs.dessertList.addEventListener('click', async event => {
     const orderButton = event.target.closest('.order-btn');
     if (!orderButton) return;
 
-    // Add your order button click handling logic here
-
-    console.log('Order button clicked:', orderButton);
-
     clearDessertDetailsModal();
-
-    const dessert = await getDessertById(orderButton.dataset.id);
-    populateDessertDetailsModal(dessert);
-    openDessertDetailsModal();
+    try {
+        const dessert = await getDessertById(orderButton.dataset.id);
+        populateDessertDetailsModal(dessert);
+        openDessertDetailsModal();
+    } catch (error) {
+        console.error('Error fetching dessert details:', error);
+    }
 });
 
 async function applyCategory(category, currentPage = 1) {
     let desserts;
-    if (category) {
-        desserts = await getDessertsByCategory(category, currentPage);
-    } else {
-        desserts = await getDesserts(currentPage);
-    }
+    try {
+        if (category) {
+            desserts = await getDessertsByCategory(category, currentPage);
+        } else {
+            desserts = await getDesserts(currentPage);
+        }
 
-    if (Math.ceil(desserts.totalItems / DESSERTS_PER_PAGE) > currentPage + 1) {
-        showLoadMoreBtn();
-    } else {
-        hideLoadMoreBtn();
+        if (Math.ceil(desserts.totalItems / DESSERTS_PER_PAGE) > currentPage + 1) {
+            showLoadMoreBtn();
+        } else {
+            hideLoadMoreBtn();
+        }
+        renderProducts(desserts);
+    } catch (error) {
+        console.error('Error loading products:', error);
     }
-
-    renderProducts(desserts);
 }
