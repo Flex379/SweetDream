@@ -88,7 +88,7 @@ async function applyCategory(category, currentPage = 1) {
             desserts = await getDesserts(currentPage);
         }
 
-        if (Math.ceil(desserts.totalItems / DESSERTS_PER_PAGE) > currentPage + 1) {
+        if (Math.ceil(desserts.totalItems / DESSERTS_PER_PAGE) >= currentPage + 1) {
             showLoadMoreBtn();
         } else {
             hideLoadMoreBtn();
