@@ -156,6 +156,7 @@ body.menu-open {
   display: block;
   width: 24px;
   height: 24px;
+  stroke: var(--color-scheme-1-text);
 }
 
 /* MOBILE NAV */
