@@ -53,6 +53,7 @@
 .order-textarea {
   height: 180px;
   overflow-y: auto;
+  resize: none;
 }
 
 .form-error {

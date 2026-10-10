@@ -95,9 +95,9 @@ async function handleOrderSubmit(event) {
     formData.dessertId = currentDessertId;
     formData.phone = removeSpacesFromPhone(formData.phone);
     try {
-      let result = await createOrder(formData);
+      let { dessertName, orderNum } = await createOrder(formData);
       showTost(
-        `Замовлення ${result.orderNum} було успішно створене`,
+        `Дякуємо за покупку ${dessertName}. Номер вашого замовлення ${orderNum}.`,
         'success'
       );
       form.reset();
