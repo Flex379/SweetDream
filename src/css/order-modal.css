@@ -47,6 +47,7 @@
   border-radius: 12px;
   padding: 8px 12px;
   height: 40px;
+  transition: border-color var(--animation);
 }
 
 .order-textarea {
@@ -77,6 +78,17 @@
   color: var(--red);
   border-color: var(--red);
   visibility: visible;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--opacity-neutral-darkest-60);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-wewak);
+  outline: none;
 }
 
 /* Styles for Tablet devices */

@@ -41,6 +41,19 @@
   transition: opacity var(--animation);
 }
 
+.modal-close-icon {
+  transition: stroke var(--animation);
+  stroke: var(--color-scheme-1-text);
+}
+
+.modal-close-icon:hover {
+  stroke: var(--opacity-neutral-darkest-60);
+}
+
+.modal-close-icon:active {
+  stroke: var(--opacity-neutral-darkest-40);
+}
+
 .dessert-details-modal {
   max-height: 100vh;
   overflow-y: auto;
@@ -157,5 +170,9 @@
 
   .dessert-details-price {
     font-size: 24px;
+  }
+
+  .dessert-details-btn {
+    width: 310px;
   }
 }
