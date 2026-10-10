@@ -54,7 +54,7 @@ async function initFeedback() {
       breakpoints: {
         768: {
           slidesPerView: 3,
-          spaceBetween: 12,
+          spaceBetween: 24,
         },
         1440: {
           slidesPerView: 3,
@@ -105,7 +105,7 @@ function createStars(rating) {
     const fill = Math.max(0, Math.min(1, rating - index)) * 100;
 
     return `
-      <svg width="20" height="20"
+      <svg width="24" height="24"
            viewBox="0 0 24 24"
            aria-hidden="true">
         <defs>
