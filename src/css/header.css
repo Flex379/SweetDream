@@ -1,13 +1,30 @@
 /* HEADER */
 
 .header {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
   padding: 24px 0;
+  background: transparent;
+}
+
+.header.scrolled .header-container {
+  padding: 12px 20px;
+  border-radius: 18px;
+  background-color: rgb(255 255 255 / 40%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition:
+    background-color 300ms ease,
+    box-shadow 300ms ease,
+    border-radius 300ms ease;
 }
 
 /* LOGO */
