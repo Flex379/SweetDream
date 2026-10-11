@@ -11,7 +11,7 @@
     );
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 377px;
+  background-size: cover;
 }
 
 .hero-container {
@@ -41,7 +41,7 @@
 }
 .hero-paragraph {
   max-width: 335px;
-
+  
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5em;
@@ -89,6 +89,11 @@
 }
 .hero-button:disabled {
   opacity: 0.3;
+}
+@media screen and (min-width: 376px) {
+  .hero {
+    background-size: 377px;
+  }
 }
 
 @media screen and (min-width: 768px) {
