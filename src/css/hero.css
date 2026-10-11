@@ -1,5 +1,5 @@
-
 .hero {
+  padding: 169px 0;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../img/hero/mobile/hero-background-moble.webp);
@@ -11,7 +11,7 @@
     );
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 377px;
 }
 
 .hero-container {
@@ -20,7 +20,6 @@
   align-items: center;
 }
 .hero-header {
-  padding: 169px 0;
   max-width: 335px;
 
   display: flex;
@@ -29,13 +28,16 @@
   color: var(--color-white);
 }
 .hero-title {
+  word-break: normal;
+  hyphens: auto;
+
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2em;
   letter-spacing: -0.01em;
   text-align: center;
 
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 .hero-paragraph {
   max-width: 335px;
@@ -45,14 +47,13 @@
   line-height: 1.5em;
   text-align: center;
 
-  padding-bottom: 32px;
+  margin-bottom: 32px;
 }
 .hero-button {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 2px solid var(--color-wewak);
   border-radius: 100px;
   background: var(--color-wewak);
 
@@ -74,14 +75,16 @@
     background-color 250ms ease,
     color 250ms ease;
 }
-.hero-button:hover, .hero-button:focus {
+.hero-button:hover,
+.hero-button:focus {
   outline: none;
   cursor: pointer;
   background-color: var(--color-white);
-  border: 2px solid var(--color-neutral-darkest);
+  outline: 2px solid var(--color-neutral-darkest);
+  outline-offset: -2px;
 }
 .hero-button:active {
-  border: 2px solid var(--color-neutral-darkest);
+  outline: 2px solid var(--color-neutral-darkest);
   background: var(--color-wewak-light);
 }
 .hero-button:disabled {
@@ -89,6 +92,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .br-mobile {
+    display: none;
+  }
   .hero {
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -99,9 +105,10 @@
         url(../img/hero/tablet/hero-background-tablet.webp) 1x,
         url(../img/hero/tablet/hero-background-tablet@2x.webp) 2x
       );
+      background-size: 768px;
+      padding: 325px 0;
   }
   .hero-header {
-    padding: 325px 0;
     max-width: 704px;
   }
   .hero-paragraph {
@@ -127,6 +134,8 @@
         url(../img/hero/desktop/hero-background.webp) 1x,
         url(../img/hero/desktop/hero-background@2x.webp) 2x
       );
+    background-size: 1440px;
+    padding: 306px 0;
   }
   .hero-header {
     max-width: 768px;
