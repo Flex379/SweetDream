@@ -5,6 +5,7 @@ export const API_ENDPOINTS = {
   FEEDBACKS: '/feedbacks',
   DESSERT_BY_ID: '/desserts/',
   ORDERS: '/orders',
+  POPULAR_DESSERTS: '/desserts?type=popular',
 };
 export const DESSERTS_PER_PAGE = 8;
 export const FEEDBACKS_PER_PAGE = 10;
