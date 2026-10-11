@@ -10,8 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 48px;
-  border-bottom: 2px solid var(--color-neutral-darkest);
+  margin-bottom: 48px;
 }
 
 /* Logo */
@@ -49,9 +48,9 @@
 .footer-nav-link {
   display: block;
   color: var(--color-neutral-darkest);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
   transition: opacity var(--animation);
 }
 
@@ -103,6 +102,9 @@
 
 .footer-copyright {
   margin: 0;
+  padding-top: 32px;
+  border-top: 2px solid var(--color-neutral-darkest);
+
   color: var(--color-neutral-darkest);
   font-size: 14px;
   font-weight: 400;
@@ -148,7 +150,7 @@
     height: 133px;
     min-height: 0;
 
-    margin: 0;
+    margin: 0 0 40px;
     padding: 0;
     border: none;
   }
@@ -157,16 +159,16 @@
     justify-self: start;
     justify-content: flex-start;
 
-    width: 310px;
-    height: 133px;
+    width: 443px;
+    height: 132px;
     max-width: none;
 
     margin: 0;
   }
 
   .footer-logo-icon {
-    width: 296px;
-    height: 63px;
+    width: 309px;
+    height: 132px;
     max-width: none;
     flex-shrink: 0;
   }
@@ -186,12 +188,6 @@
     justify-self: end;
     margin: 0;
     gap: 24px;
-  }
-
-  .footer-bottom {
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 2px solid var(--color-neutral-darkest);
   }
 
   .footer-copyright {
