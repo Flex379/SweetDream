@@ -29,6 +29,9 @@
   height: 48px;
   -webkit-tap-highlight-color: transparent;
   /* z-index: 2; */
+  transition:
+    background-color var(--animation),
+    opacity var(--animation);
   background: var(--color-scheme-1-foreground);
 }
 
