@@ -66,14 +66,6 @@ export function clearDessertDetailsModal() {
   });
 }
 
-export async function handleOpenDessertDetailsModal() {
-  clearDessertDetailsModal();
-
-  const dessert = await getDessertById('6852a9fcb459460cb6b47720');
-  populateDessertDetailsModal(dessert);
-  openDessertDetailsModal();
-}
-
 export function openDessertDetailsModal() {
   const refs = dessertDetailsRefs;
   refs.dessertDetailsModal.classList.add('is-open');
@@ -112,5 +104,3 @@ function handleBackDropClick(event) {
     closeDessertDetailsModal();
   }
 }
-
-// handleOpenDessertDetailsModal();

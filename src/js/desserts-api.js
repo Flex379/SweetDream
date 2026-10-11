@@ -12,6 +12,13 @@ export async function getDesserts(currentPage = 1) {
   return data;
 }
 
+export async function getPopularDesserts(currentPage = 1) {
+  const { data } = await axios(
+    `${API_ENDPOINTS.POPULAR_DESSERTS}&limit=${DESSERTS_PER_PAGE}&page=${currentPage}`
+  );
+  return data;
+}
+
 export async function getCategories() {
   const { data } = await axios(API_ENDPOINTS.CATEGORIES);
   return data;
