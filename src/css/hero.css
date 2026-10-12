@@ -2,7 +2,7 @@
   padding: 169px 0;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../img/hero/mobile/hero-background-moble.webp);
+    url(../img/hero/mobile/hero-background-mobile.webp);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,7 +12,7 @@
   .hero {
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(../img/hero/mobile/hero-background-moble@2x.webp);
+      url(../img/hero/mobile/hero-background-mobile@2x.webp);
   }
 }
 
