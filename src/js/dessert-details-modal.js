@@ -1,6 +1,7 @@
 import Raty from 'raty-js';
 import 'raty-js/src/raty.css';
 import { getDessertById } from './desserts-api';
+import { getOptimizedImageUrl } from './image-proxy.js';
 import { openOrderModal } from './order-modal';
 
 const dessertDetailsRefs = {
@@ -44,8 +45,18 @@ export function populateDessertDetailsModal({
     imgEl.remove();
   }
   if (image) {
-    const imgMarkup = `<img class="dessert-details-img" alt="${name}" src="${image}" />`;
+    const imgMarkup = `<img class="dessert-details-img" alt="${name}" src="${getOptimizedImageUrl(image, 640)}" decoding="async" />`;
     refs.closeBtn.insertAdjacentHTML('afterend', imgMarkup);
+
+    refs.img = refs.closeBtn.nextElementSibling;
+
+    const highResolutionImage = new Image();
+    highResolutionImage.onload = () => {
+      if (currentDessertId === id) {
+        refs.img.src = highResolutionImage.src;
+      }
+    };
+    highResolutionImage.src = getOptimizedImageUrl(image, 1200);
   }
 
   refs.title.textContent = name;
