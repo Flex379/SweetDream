@@ -37,6 +37,9 @@
 
 .logo-icon {
   display: block;
+  width: 150px;
+  height: 60px;
+  overflow: visible;
 }
 
 /* DESKTOP NAV */
