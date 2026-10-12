@@ -9,7 +9,7 @@ import {
   openDessertDetailsModal,
   populateDessertDetailsModal,
 } from './dessert-details-modal';
-// import { getPopularDesserts } from './desserts-api';
+import iconsUrl from '../img/icons.svg?url';
 
 const refs = {
   productsList: document.querySelector('.popular-products-wrapper'),
@@ -28,6 +28,7 @@ async function initSection() {
 function intitSwiper() {
   var swiper = new Swiper('.popular-products-swiper', {
     slidesPerView: 1,
+    speed: 250,
     pagination: {
       el: '.popular-products-pugination',
       dynamicBullets: true,
@@ -81,7 +82,7 @@ export function renderProducts(desserts) {
 
             <button class="order-btn" type="button" data-id="${_id}">
               <svg class="order-btn-icon" width="24" height="24" aria-hidden="true">
-                  <use href="../img/icons.svg#arrow-outward"></use>
+                  <use href="${iconsUrl}#arrow-outward"></use>
               </svg>
             </button>
         </div>
