@@ -74,9 +74,9 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  border: 1px solid #080c0c;
+  border: 2px solid var(--color-neutral-darkest);
   border-radius: 50%;
-  background-color: #f5f0ed;
+  background-color: rgba(245, 253, 253, 0.8);
   color: #080c0c;
   cursor: pointer;
   transition:
@@ -200,11 +200,11 @@
   }
 
   .feedback-button {
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    transform: translateY(-50%);
-  }
+  position: absolute;
+  top: calc((100% - 40px) / 2);
+  z-index: 2;
+  transform: translateY(-50%);
+}
 
   .feedback-button-prev {
   left: -24px;
