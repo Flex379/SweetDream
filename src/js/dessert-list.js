@@ -2,6 +2,12 @@ import { getCategories, getDessertsByCategory, getDesserts, getDessertById } fro
 import { renderCategories, renderProducts, clearDessertList, showLoadMoreBtn, hideLoadMoreBtn } from './render-functions.js';
 import { DESSERTS_PER_PAGE } from './constants.js';
 import { clearDessertDetailsModal, populateDessertDetailsModal, openDessertDetailsModal } from './dessert-details-modal.js';
+import iziToast from 'izitoast';
+
+iziToast.settings({
+    timeout: 5000,
+    position: 'topRight',
+});
 
 export const refs = {
     categorySelect: document.querySelector('.category-select'),
@@ -22,7 +28,10 @@ document.addEventListener('DOMContentLoaded', async event => {
 
         applyCategory('');
     } catch (error) {
-        console.error('Error loading categories:', error);
+        iziToast.error({
+            title: 'Error',
+            message: 'Failed to load categories.' + error.message,
+        });
     }
 });
 
@@ -76,7 +85,10 @@ refs.dessertList.addEventListener('click', async event => {
         populateDessertDetailsModal(dessert);
         openDessertDetailsModal();
     } catch (error) {
-        console.error('Error fetching dessert details:', error);
+        iziToast.error({
+            title: 'Error',
+            message: 'Failed to fetch dessert details.' + error.message,
+        });
     }
 });
 
@@ -96,6 +108,9 @@ async function applyCategory(category, currentPage = 1) {
         }
         await renderProducts(desserts);
     } catch (error) {
-        console.error('Error loading products:', error);
+        iziToast.error({
+            title: 'Error',
+            message: 'Failed to load products.' + error.message,
+        });
     }
 }
