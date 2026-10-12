@@ -20,29 +20,52 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+<!-- Mobile Backgrounds -->
     <link
       rel="preload"
       as="image"
       fetchpriority="high"
-      href="/img/hero/mobile/hero-background-mobile.webp"
-      imagesrcset="/img/hero/mobile/hero-background-mobile.webp 1x, /img/hero/mobile/hero-background-mobile@2x.webp 2x"
-      media="(max-width: 767px)"
+      href="./img/hero/mobile/hero-background-mobile.webp"
+      media="(max-width: 767px) and (max-resolution: 1.99dppx)"
     />
     <link
       rel="preload"
       as="image"
       fetchpriority="high"
-      href="/img/hero/tablet/hero-background-tablet.webp"
-      imagesrcset="/img/hero/tablet/hero-background-tablet.webp 1x, /img/hero/tablet/hero-background-tablet@2x.webp 2x"
-      media="(min-width: 768px) and (max-width: 1439px)"
+      href="./img/hero/mobile/hero-background-mobile@2x.webp"
+      media="(max-width: 767px) and (min-resolution: 2dppx)"
+    />
+
+    <!-- Tablet Backgrounds -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="./img/hero/tablet/hero-background-tablet.webp"
+      media="(min-width: 768px) and (max-width: 1439px) and (max-resolution: 1.99dppx)"
     />
     <link
       rel="preload"
       as="image"
       fetchpriority="high"
-      href="/img/hero/desktop/hero-background.webp"
-      imagesrcset="/img/hero/desktop/hero-background.webp 1x, /img/hero/desktop/hero-background@2x.webp 2x"
-      media="(min-width: 1440px)"
+      href="./img/hero/tablet/hero-background-tablet@2x.webp"
+      media="(min-width: 768px) and (max-width: 1439px) and (min-resolution: 2dppx)"
+    />
+
+    <!-- Desktop Backgrounds -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="./img/hero/desktop/hero-background.webp"
+      media="(min-width: 1440px) and (max-resolution: 1.99dppx)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="./img/hero/desktop/hero-background@2x.webp"
+      media="(min-width: 1440px) and (min-resolution: 2dppx)"
     />
   </head>
   <body>
