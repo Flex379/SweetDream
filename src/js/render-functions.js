@@ -1,4 +1,5 @@
 import { refs } from './dessert-list.js';
+import { getOptimizedImageUrl } from './image-proxy.js';
 import iconsUrl from '../img/icons.svg?url';
 
 let imageBatchVersion = 0;
@@ -30,7 +31,7 @@ export async function renderProducts(products) {
     const markup = products.desserts
         .map(({ _id, image, name, description, price, category }, index) => `
     <li class="dessert-item" style="--reveal-index: ${index}">
-        <img class="dessert-image" src="${image}" alt="${name}" loading="eager" />
+        <img class="dessert-image" src="${getOptimizedImageUrl(image, 640)}" alt="${name}" loading="lazy" decoding="async" />
 
         <p class="dessert-category">${category.name}</p>
         <h3 class="dessert-name">${name}</h3>
