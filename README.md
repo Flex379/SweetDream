@@ -1,113 +1,67 @@
-# Vanilla App Template
+# Sweet Dream
 
-Цей проект було створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+Sweet Dream is a responsive, single-page storefront for a small dessert shop. It introduces the bakery and its products, helps visitors browse desserts by category, and lets them submit an order request for a selected item. The experience brings the catalog, product information, customer reviews, and ordering flow together in one place.
 
-## Створення репозиторію за шаблоном
+## Features
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проекту. Для цього натисни на кнопку `«Use this template»` і
-обери опцію `«Create a new repository»`, як показано на зображенні.
+- **Shop introduction:** hero section, bakery story, and responsive photo gallery.
+- **Popular desserts:** featured products shown in a responsive carousel.
+- **Dessert catalog:** API-loaded products with category filters, pagination through a “load more” button, and an image-loading indicator.
+- **Product details:** a modal with the dessert image, description, ingredients, price, and rating.
+- **Order requests:** a form linked to the selected dessert, with browser-based validation, phone number formatting, and success or error notifications. In-progress form values are saved in local storage and restored when the page is reopened.
+- **Customer feedback:** API-loaded reviews with star ratings in a responsive carousel.
+- **FAQ:** expandable questions and answers.
+- **Responsive navigation and imagery:** mobile menu, breakpoint-specific hero and gallery images, lazy-loaded product images, and optimized remote product images.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Tech Stack
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+- **Application:** HTML, CSS, and vanilla JavaScript using ES modules.
+- **Build and development:** Vite 5, with HTML partial injection, full reload for partial changes, and mobile-first media-query sorting.
+- **API requests:** Axios, using the Sweet Dream dessert store API at `https://deserts-store.b.goit.study/api`.
+- **Interactive UI:** Swiper for carousels, Accordion JS for FAQ items, Raty for product ratings, and iziToast for notifications.
+- **Images and typography:** WebP image assets, the weserv.nl image proxy for remote image resizing and conversion, and the Nunito font from Google Fonts.
+- **Deployment:** GitHub Actions builds the site and publishes `dist` to the `gh-pages` branch on pushes to `main`.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+## Run Locally
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+Requirements: Node.js (LTS recommended) and npm.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
-
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
-
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
-
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
-
-## Підготовка до роботи
-
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
-
-## Файли і папки
-
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та імпортуватись до HTML-файлів
-  сторінок. Наприклад, для `index.html` файл стилів називається `index.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
-
-## Деплой
-
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
-
-```json
-"build": "vite build --base=/<REPO>/",
+```sh
+npm install
+npm run dev
 ```
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+## Scripts
 
-### Статус деплою
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Create a production build using the `/SweetDream/` base path for GitHub Pages. |
+| `npm run build:local` | Create a production build using `/` as the base path. |
+| `npm run preview` | Preview the production build locally. |
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+## Project Structure
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+```text
+src/
+  index.html          Main page and partial assembly
+  main.js             JavaScript entry point
+  partials/           Header, hero, catalog, reviews, modals, and other sections
+  js/                 API, rendering, and feature modules
+  css/                Global and section-specific stylesheets
+  img/                Icons and responsive image assets
+assets/               Repository and project assets
+.github/workflows/    GitHub Pages deployment workflow
+```
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+The page is assembled from HTML partials in `src/partials/`. Feature behavior lives in separate modules in `src/js/`, while styles are organized under `src/css/`.
 
-![Deployment status](./assets/deploy-status.png)
+## API Integration
 
-### Жива сторінка
+The frontend uses the dessert store API to retrieve categories, desserts, popular desserts, individual dessert details, and customer feedback. Order forms are submitted to the API's orders endpoint. Catalog and review requests use pagination; desserts can also be requested by category.
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
+## Deployment
 
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
-
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
-
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
+The workflow in `.github/workflows/deploy.yml` runs on pushes to `main`, installs dependencies, runs `npm run build`, and deploys the generated `dist` directory to `gh-pages`. The build base path is configured as `/SweetDream/` in `package.json` for the GitHub Pages project URL.
