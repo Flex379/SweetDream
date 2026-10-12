@@ -39,6 +39,10 @@ export function populateDessertDetailsModal({
   let refs = dessertDetailsRefs;
 
   refs.img.src = image;
+  if (!image) {
+    refs.img.hidden = true;
+  }
+  refs.img.hidden = false;
   refs.title.textContent = name;
   refs.priceNumber.textContent = price;
   refs.description.textContent = description;
