@@ -64,7 +64,7 @@
 
     transform-origin: center;
     transform: translateY(-65%) rotate(45deg);
-    transition: transform 0.2s ease;
+    transition: transform var(--animation);
   }
 
   .category-select:open::picker-icon {
