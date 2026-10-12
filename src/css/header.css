@@ -160,6 +160,8 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
   padding-top: 16px;
   padding-bottom: 16px;
 }
@@ -247,6 +249,13 @@ body.menu-open {
   border: 2px solid #080c0c;
   background-color: #c07979;
 }
+
+/* .mobile-menu-header.container {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  max-width: 100%;
+} */
 
 /* MOBILE */
 
