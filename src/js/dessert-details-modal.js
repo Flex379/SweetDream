@@ -38,11 +38,16 @@ export function populateDessertDetailsModal({
   currentDessertId = id;
   let refs = dessertDetailsRefs;
 
-  refs.img.src = image;
-  if (!image) {
-    refs.img.hidden = true;
+  const imgEl = document.querySelector('.dessert-details-img');
+
+  if (imgEl) {
+    imgEl.remove();
   }
-  refs.img.hidden = false;
+  if (image) {
+    const imgMarkup = `<img class="dessert-details-img" alt="${name}" src="${image}" />`;
+    refs.closeBtn.insertAdjacentHTML('afterend', imgMarkup);
+  }
+
   refs.title.textContent = name;
   refs.priceNumber.textContent = price;
   refs.description.textContent = description;

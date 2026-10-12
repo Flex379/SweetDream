@@ -1,4 +1,5 @@
 import {
+  clearDessertDetailsModal,
   closeDessertDetailsModal,
   currentDessertId,
   openDessertDetailsModal,
@@ -103,6 +104,7 @@ async function handleOrderSubmit(event) {
       form.reset();
       closeOrderModal();
       closeDessertDetailsModal();
+      clearDessertDetailsModal();
       removeOrderFormData();
     } catch (error) {
       console.log(`Помилка оформлення замовлення ${error}`);
