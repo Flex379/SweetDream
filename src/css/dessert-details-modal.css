@@ -57,8 +57,7 @@
 }
 
 .dessert-details-modal {
-  /* max-height: 100vh;
-  overflow-y: auto; */
+  margin: auto 0;
 
   display: flex;
   flex-direction: column;
