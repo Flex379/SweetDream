@@ -9,6 +9,7 @@ import {
   openDessertDetailsModal,
   populateDessertDetailsModal,
 } from './dessert-details-modal';
+import { getOptimizedImageUrl } from './image-proxy.js';
 import iconsUrl from '../img/icons.svg?url';
 
 const refs = {
@@ -73,7 +74,7 @@ export function renderProducts(desserts) {
     .map(
       ({ _id, image, name, description, price, category }) => `
     <li class="popular-products-item swiper-slide">
-        <img class="popular-dessert-image" src="${image}" alt="${name}" loading="lazy" />
+        <img class="popular-dessert-image" src="${getOptimizedImageUrl(image, 640)}" alt="${name}" loading="lazy" decoding="async" />
         <p class="popular-dessert-category">${category.name}</p>
         <h3 class="popular-dessert-name">${name}</h3>
         <p class="popular-dessert-description">${description}</p>
