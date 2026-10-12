@@ -80,8 +80,8 @@
   color: #080c0c;
   cursor: pointer;
   transition:
-    background-color 250ms ease,
-    color 250ms ease;
+  background-color var(--animation),
+  color var(--animation);
 }
 
 .feedback-button:hover,
@@ -119,7 +119,7 @@
   background-color: #080c0c;
   opacity: 0.45;
   cursor: pointer;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--animation);
 }
 
 .feedback-pagination .swiper-pagination-bullet-active,
