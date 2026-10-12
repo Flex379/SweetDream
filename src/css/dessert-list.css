@@ -179,6 +179,27 @@
   border: 1px solid var(--color-scheme-1-border);
   border-radius: 16px;
   padding: 16px;
+  animation: dessert-appear 500ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  animation-delay: calc(var(--reveal-index, 0) * 140ms);
+}
+
+@keyframes dessert-appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dessert-item,
+  .dessert-loader-spinner {
+    animation: none;
+  }
 }
 
 .dessert-image {
@@ -199,6 +220,12 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 4px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .dessert-description {
@@ -208,7 +235,7 @@
 }
 
 .dessert-price {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -221,6 +248,34 @@
 
 .is-hidden {
   display: none;
+}
+
+.dessert-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 40px;
+  color: var(--color-neutral-darkest);
+}
+
+.dessert-loader.is-hidden {
+  display: none;
+}
+
+.dessert-loader-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: dessert-loader-spin 700ms linear infinite;
+}
+
+@keyframes dessert-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {

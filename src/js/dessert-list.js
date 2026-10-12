@@ -7,6 +7,7 @@ export const refs = {
     categorySelect: document.querySelector('.category-select'),
     categoryButtons: document.querySelector('.category-buttons'),
     dessertList: document.querySelector('.dessert-list'),
+    dessertLoader: document.querySelector('.dessert-loader'),
     loadMoreBtn: document.querySelector('.load-more-btn'),
 }
 
@@ -60,7 +61,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
 
     const dessertItem = document.querySelector('.dessert-item');
     scrollBy({
-        top: dessertItem.getBoundingClientRect().height + 60,
+        top: dessertItem.getBoundingClientRect().height + 80,
         behavior: 'smooth',
     });
 });
@@ -93,7 +94,7 @@ async function applyCategory(category, currentPage = 1) {
         } else {
             hideLoadMoreBtn();
         }
-        renderProducts(desserts);
+        await renderProducts(desserts);
     } catch (error) {
         console.error('Error loading products:', error);
     }

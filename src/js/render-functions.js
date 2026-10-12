@@ -1,6 +1,9 @@
 import { refs } from './dessert-list.js';
 import iconsUrl from '../img/icons.svg?url';
 
+let imageBatchVersion = 0;
+let pendingImageBatches = 0;
+
 export function renderCategories(categories) {
     // Render category select options and buttons
     const allCategories = [{ _id: '', name: 'Всі десерти' }, ...categories];
@@ -21,11 +24,13 @@ export function renderCategories(categories) {
     firstCategoryBtn.classList.add('category-btn--active');
 }
 
-export function renderProducts(products) {
+export async function renderProducts(products) {
+    const batchVersion = imageBatchVersion;
+    const firstNewItemIndex = refs.dessertList.children.length;
     const markup = products.desserts
-        .map(({ _id, image, name, description, price, category }) => `
-    <li class="dessert-item">
-        <img class="dessert-image" src="${image}" alt="${name}" loading="lazy" />
+        .map(({ _id, image, name, description, price, category }, index) => `
+    <li class="dessert-item" style="--reveal-index: ${index}">
+        <img class="dessert-image" src="${image}" alt="${name}" loading="eager" />
 
         <p class="dessert-category">${category.name}</p>
         <h3 class="dessert-name">${name}</h3>
@@ -44,9 +49,39 @@ export function renderProducts(products) {
         )
         .join('');
     refs.dessertList.insertAdjacentHTML('beforeend', markup);
+
+    const images = Array.from(refs.dessertList.querySelectorAll('.dessert-image'))
+        .slice(firstNewItemIndex);
+    if (images.length === 0) return;
+
+    refs.dessertLoader.classList.remove('is-hidden');
+    pendingImageBatches += 1;
+
+    await Promise.all([
+        new Promise(resolve => window.setTimeout(resolve, 500)),
+        Promise.all(images.map(image => new Promise(resolve => {
+            if (image.complete) {
+                resolve();
+                return;
+            }
+
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+        }))),
+    ]);
+
+    if (batchVersion !== imageBatchVersion) return;
+
+    pendingImageBatches -= 1;
+    if (pendingImageBatches === 0) {
+        refs.dessertLoader.classList.add('is-hidden');
+    }
 }
 
 export const clearDessertList = () => {
+    imageBatchVersion += 1;
+    pendingImageBatches = 0;
+    refs.dessertLoader.classList.add('is-hidden');
     refs.dessertList.innerHTML = '';
 };
 
