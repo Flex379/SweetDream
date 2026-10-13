@@ -69,7 +69,7 @@
     <script type="module" crossorigin src="/SweetDream/index.js"></script>
     <link rel="modulepreload" crossorigin href="/SweetDream/assets/vendor-Cp--P9p1.js">
     <link rel="stylesheet" crossorigin href="/SweetDream/assets/vendor-UZShicyy.css">
-    <link rel="stylesheet" crossorigin href="/SweetDream/assets/index-Gts1n_WV.css">
+    <link rel="stylesheet" crossorigin href="/SweetDream/assets/index-bAMoyA4T.css">
   </head>
   <body>
     <header class="header">
@@ -80,18 +80,18 @@
       </svg>
     </a>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Головна навігація">
       <ul class="nav-list">
-        <li class="nav-item">
+        <li>
           <a class="nav-link" href="#dessert-list">Солодощі</a>
         </li>
-        <li class="nav-item">
+        <li>
           <a class="nav-link" href="#about-us">Про нас</a>
         </li>
-        <li class="nav-item">
+        <li>
           <a class="nav-link" href="#feedback">Відгуки</a>
         </li>
-        <li class="nav-item">
+        <li>
           <a class="nav-link" href="#faq">Часті питання</a>
         </li>
       </ul>
@@ -103,17 +103,24 @@
       class="burger-button"
       type="button"
       aria-label="Відкрити меню"
+      aria-controls="mobile-menu"
       aria-expanded="false"
     >
-      <svg class="burger-icon" width="19" height="13">
+      <svg class="burger-icon" width="24" height="24">
         <use href="/SweetDream/assets/icons-ic41G-Be.svg#menu"></use>
       </svg>
     </button>
   </div>
 
-  <div class="mobile-menu">
-    <div class="mobile-menu-header">
-      <div class="container mobile-menu-header-container">
+  <nav
+    class="mobile-menu"
+    id="mobile-menu"
+    aria-label="Мобільна навігація"
+    aria-hidden="true"
+    inert
+  >
+    <div class="container mobile-menu-container">
+      <div class="mobile-menu-header">
         <a class="logo" href="./index.html" aria-label="SweetDream">
           <svg class="logo-icon" viewBox="0 0 112 48">
             <use href="/SweetDream/assets/icons-ic41G-Be.svg#logo"></use>
@@ -130,28 +137,26 @@
           </svg>
         </button>
       </div>
-    </div>
 
-    <nav class="container mobile-nav">
       <ul class="mobile-nav-list">
-        <li class="mobile-nav-item">
+        <li>
           <a class="mobile-nav-link" href="#dessert-list">Солодощі</a>
         </li>
-        <li class="mobile-nav-item">
+        <li>
           <a class="mobile-nav-link" href="#about-us">Про нас</a>
         </li>
-        <li class="mobile-nav-item">
+        <li>
           <a class="mobile-nav-link" href="#feedback">Відгуки</a>
         </li>
-        <li class="mobile-nav-item">
+        <li>
           <a class="mobile-nav-link" href="#faq">Часті питання</a>
         </li>
-        <li class="mobile-nav-item">
-          <a class="mobile-nav-button" href="#dessert-list"> До покупок </a>
+        <li>
+          <a class="mobile-nav-button" href="#dessert-list">До покупок</a>
         </li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
 
